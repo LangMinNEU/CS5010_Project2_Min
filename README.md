@@ -36,7 +36,7 @@ npm run dev
 
 ## Video
 NEU CS5010 Project2 Video <br>
-<!-- [Watch on YouTube]() -->
+[Watch on YouTube](https://youtu.be/HFRyaINY4DM)
 
 ## Gen AI Usage
 ### Usage 1

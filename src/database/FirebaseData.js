@@ -85,8 +85,6 @@ function MyFirestoreHandler() {
         }
     }
 
-    // myFireStore.getFlights = getFlights;
-    // myFireStore.getPlans = getPlans;
     myFireStore.searchFlights = searchFlights;
     myFireStore.savePlan = savePlan;
     myFireStore.getAllPlans = getAllPlans;
