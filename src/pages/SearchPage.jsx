@@ -57,7 +57,12 @@ export default function SearchPage() {
     return (
         <PageTemplate>
             <div>
-            <h2>Beta Version - All Trips Starts at March 1st</h2>
+            <h2>Beta Version</h2>
+            <p>
+                Due to the simulated data, available flights are only from March 1st to March 7th. 
+                It includes only direct flight between any two of these three cities: San Francisco, San Diego, and Atlanta.
+                We apologize for the inconvenience.
+            </p>
             <br></br>
             <h2>Search for your flights</h2>
             <br></br>
@@ -73,7 +78,7 @@ export default function SearchPage() {
                     <ul>
                     {flights.map((flight, index) => (
                         <li key={index}>
-                        Flight: {flight.flightId}, From {flight.origin} To {flight.destination}, Price: ${flight.price}
+                        Flight: {flight.flightId} | From {flight.origin} To {flight.destination} | Time: {flight.departure} | Price: ${flight.price}
                         </li>
                     ))}
                     </ul>

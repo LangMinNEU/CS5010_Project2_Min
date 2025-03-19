@@ -25,7 +25,6 @@ function NavBar() {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Search</Nav.Link>
                         <Nav.Link href="/plan">Plan</Nav.Link>
-                        <Nav.Link href="/review">Review</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

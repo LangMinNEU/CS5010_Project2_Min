@@ -27,7 +27,7 @@ const AllPlans = () => {
           <ul>
             {plan.flights.map((flight, i) => (
               <li key={i}>
-                Flight: {flight.flightId}, From {flight.origin} To {flight.destination}, Price: ${flight.price}
+                Flight: {flight.flightId} | From {flight.origin} To {flight.destination} | Time: {flight.departure} | Price: ${flight.price}
               </li>
             ))}
           </ul>
