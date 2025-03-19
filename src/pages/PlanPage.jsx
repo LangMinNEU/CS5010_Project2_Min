@@ -1,10 +1,13 @@
-import PageTemplate from "./PageTemplate";
+import PageTemplate from "./PageTemplate.jsx";
+import AllPlans from "../components/AllPlans.jsx";
 
 export default function PlanPage() {
     return (
         <PageTemplate>
-            <h2>Check your plans</h2>
-            
+            <h2>Check saved plans</h2>
+            <div>
+                <AllPlans />
+            </div>
         </PageTemplate>
     );
-}
+};

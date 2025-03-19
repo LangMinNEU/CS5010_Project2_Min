@@ -7,6 +7,9 @@ import {
     updateDoc,
     query,
     where,
+    orderBy,
+    limit,
+    addDoc
 } from "firebase/firestore";
 
 // Import the functions you need from the SDKs you need
@@ -18,19 +21,6 @@ import { getAnalytics } from "firebase/analytics";
 
 function MyFirestoreHandler() {
     const myFireStore = {};
-
-    // const firebaseConfig = {
-    //     apiKey: "YOUR_API_KEY",
-    //     authDomain: "YOUR_AUTH_DOMAIN",
-    //     projectId: "YOUR_PROJECT_ID",
-    //     storageBucket: "YOUR_STORAGE_BUCKET",
-    //     messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    //     appId: "YOUR_APP_ID"
-    // };
-
-    // // Initialize Firebase
-    // const app = initializeApp(firebaseConfig);
-    // const db = getFirestore(app);
 
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -51,26 +41,13 @@ function MyFirestoreHandler() {
 
     
 
-    async function getFlights() {
-        const flightsCol = collection(db, "flights");
-        const flightsSnapshot = await getDocs(flightsCol);
-        const flightsList = flightsSnapshot.docs.map((doc) => doc.data());
-        console.log("Flights: ", flightsList);
-        return flightsList;
-    }
-
-    async function getPlans() {
-        const plansCol = collection(db, "plans");
-        const plansSnapshot = await getDocs(plansCol);
-        const plansList = flightsSnapshot.docs.map((doc) => doc.data());
-        console.log("Plans: ", plansList);
-        return plansList;
-    }
-
-    async function searchFlights(from, to) {
+    async function searchFlights(index, from, to, stay) {
         try {
+            const noEarlier = stay * 10000 + 2503010000;
+            const noLater = (stay + 1) * 10000 + 2503010000;
+            // console.log(`noEarlier is ${noEarlier}, noLater is ${noLater}`);
             const flightsRef = collection(db, "flights");
-            const q = query(flightsRef, where("origin", "==", from), where("destination", "==", to));
+            const q = query(flightsRef, where("origin", "==", from), where("destination", "==", to), where("departure", ">=", noEarlier), where("departure", "<=", noLater), orderBy("price", "asc"), limit(1));
             const querySnapshot = await getDocs(q);
             const results = querySnapshot.docs.map((doc) => ({
                 id: doc.id,
@@ -83,9 +60,36 @@ function MyFirestoreHandler() {
         }
     }
 
-    myFireStore.getFlights = getFlights;
-    myFireStore.getPlans = getPlans;
+    async function savePlan(flights) {
+        try {
+            const docRef = await addDoc(collection(db, "plans"), { flights });
+            return docRef.id; // Return generated plan ID
+        } catch (error) {
+            console.error("Error saving plan:", error);
+            return null;
+        }
+    }
+
+    async function getAllPlans() {
+        try {
+            const plansCol = collection(db, "plans");
+            const plansSnapshot = await getDocs(plansCol);
+            const result = plansSnapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            return result;
+        } catch (error) {
+            console.error("Error fetching all plans:", error);
+            return [];
+        }
+    }
+
+    // myFireStore.getFlights = getFlights;
+    // myFireStore.getPlans = getPlans;
     myFireStore.searchFlights = searchFlights;
+    myFireStore.savePlan = savePlan;
+    myFireStore.getAllPlans = getAllPlans;
 
     return myFireStore;
       
