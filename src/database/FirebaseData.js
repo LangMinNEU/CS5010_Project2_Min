@@ -9,7 +9,8 @@ import {
     where,
     orderBy,
     limit,
-    addDoc
+    addDoc,
+    deleteDoc
 } from "firebase/firestore";
 
 // Import the functions you need from the SDKs you need
@@ -85,9 +86,32 @@ function MyFirestoreHandler() {
         }
     }
 
+    async function updatePlan(id, newItem) {
+        try {
+            const docRef = doc(collection(db, "plans", id));
+            await updateDoc(docRef, newItem);
+            return docRef.id;
+        } catch (error) {
+            console.error("Error updating plan:", error);
+            return null;
+        }
+    }
+
+    async function deletePlan(id) {
+        try {
+            await deleteDoc(collection(db, "plans", id));
+            return ;
+        } catch (error) {
+            console.error("Error deleting plan:", error);
+            return null;
+        }
+    }
+
     myFireStore.searchFlights = searchFlights;
     myFireStore.savePlan = savePlan;
     myFireStore.getAllPlans = getAllPlans;
+    myFireStore.updatePlan = updatePlan;
+    myFireStore.deletePlan = deletePlan;
 
     return myFireStore;
       

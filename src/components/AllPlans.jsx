@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { myDatabase } from "../database/FirebaseData.js";
 
-const AllPlans = () => {
+export const AllPlans = () => {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,5 +36,3 @@ const AllPlans = () => {
     </div>
   );
 };
-
-export default AllPlans;

@@ -1,7 +1,7 @@
-import PageTemplate from "./PageTemplate.jsx";
-import AllPlans from "../components/AllPlans.jsx";
+import { PageTemplate } from "./PageTemplate.jsx";
+import { AllPlans } from "../components/AllPlans.jsx";
 
-export default function PlanPage() {
+export function PlanPage() {
     return (
         <PageTemplate>
             <h2>Check saved plans</h2>

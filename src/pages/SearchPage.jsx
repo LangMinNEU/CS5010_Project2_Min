@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-import PageTemplate from "./PageTemplate.jsx";
-import SearchForm from "../components/SearchForm.jsx";
+import { PageTemplate } from "./PageTemplate.jsx";
+import { SearchForm } from "../components/SearchForm.jsx";
 
 import { myDatabase } from "../database/FirebaseData.js";
 
 // import myDatabase from "../database/FirebaseData.js";
 
-export default function SearchPage() {
+export function SearchPage() {
 
     const [searchData, setSearchData] = useState([]);
     const [flights, setFlights] = useState([]);

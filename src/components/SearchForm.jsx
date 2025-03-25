@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SearchForm = ({ onSearch }) => {
+export const SearchForm = ({ onSearch }) => {
     const [trips, setTrips] = useState([{ from: "", to: "", days: "" }]);
   
     const handleChange = (index, field, value) => {
@@ -62,5 +62,3 @@ const SearchForm = ({ onSearch }) => {
       </form>
     );
 };
-  
-  export default SearchForm;

@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from "react-router";
 // import './index.css'
 
-import PlanPage from './pages/PlanPage.jsx'
-import SearchPage from './pages/SearchPage.jsx'
+import { PlanPage } from './pages/PlanPage.jsx'
+import { SearchPage } from './pages/SearchPage.jsx'
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
