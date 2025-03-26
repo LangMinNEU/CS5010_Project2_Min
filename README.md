@@ -6,6 +6,7 @@ This is a functional programming project for course CS5010. Gogo is an air trave
 - Users can
   - search for flights by entering multiple destinations and the number of days they plan to stay at each location 
   - save search results as a plan
+  - view, rename, and delete a plan
 
 ## Author
 Lang Min
@@ -41,7 +42,7 @@ NEU CS5010 Project2 Introduction Video <br>
 [Watch on YouTube](https://youtu.be/HFRyaINY4DM)
 
 Functional Programming Code Demonstration <br>
-[Watch on YouTube]()
+[Watch on YouTube](https://youtu.be/3i2ivskEUxM)
 
 ## Gen AI Usage
 ### Usage 1
