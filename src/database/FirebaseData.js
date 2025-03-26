@@ -41,7 +41,7 @@ function MyFirestoreHandler() {
     const db = getFirestore(app);
 
     
-
+    // To search flights info based on inputs
     async function searchFlights(index, from, to, stay) {
         try {
             const noEarlier = stay * 10000 + 2503010000;
@@ -61,6 +61,7 @@ function MyFirestoreHandler() {
         }
     }
 
+    // Create and add flights as a plan
     async function savePlan(flights) {
         try {
             const docRef = await addDoc(collection(db, "plans"), { flights });
@@ -71,6 +72,7 @@ function MyFirestoreHandler() {
         }
     }
 
+    // Retrieve all the saved plans
     async function getAllPlans() {
         try {
             const plansCol = collection(db, "plans");
@@ -86,9 +88,10 @@ function MyFirestoreHandler() {
         }
     }
 
+    // Update the selected plan from database
     async function updatePlan(id, newItem) {
         try {
-            const docRef = doc(collection(db, "plans", id));
+            const docRef = doc(db, "plans", id);
             await updateDoc(docRef, newItem);
             return docRef.id;
         } catch (error) {
@@ -97,9 +100,11 @@ function MyFirestoreHandler() {
         }
     }
 
+    // Delete the selected plan from database
     async function deletePlan(id) {
         try {
-            await deleteDoc(collection(db, "plans", id));
+            const docRef = doc(db, "plans", id);
+            await deleteDoc(docRef);
             return ;
         } catch (error) {
             console.error("Error deleting plan:", error);

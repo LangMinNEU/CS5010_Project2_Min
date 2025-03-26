@@ -19,6 +19,8 @@ Lang Min
 - ./src/components/SearchForm.jsx
 - ./src/components/AllPlans.jsx
 - ./src/database/FirebaseData.js
+- ./README.md
+- ./Demonstration.md
 
 ## How To Run
 This app is deployed, so users can directly run by <br>
@@ -35,8 +37,11 @@ npm run dev
 ```
 
 ## Video
-NEU CS5010 Project2 Video <br>
+NEU CS5010 Project2 Introduction Video <br>
 [Watch on YouTube](https://youtu.be/HFRyaINY4DM)
+
+Functional Programming Code Demonstration <br>
+[Watch on YouTube]()
 
 ## Gen AI Usage
 ### Usage 1
@@ -191,3 +196,10 @@ firebase init
 npm run build
 firebase deploy
 ```
+
+### Usage 5
+I asked ChatGPT 4o that whether my code is containing functional programming principles, array methods, and design patterns. I referred some of the answers.
+
+### Usage 6
+I asked ChatGPT 4o to provide a counterexample for each of the listed functional programming concepts, array methods, and design patterns.
+
