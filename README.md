@@ -25,9 +25,9 @@ Lang Min
 
 ## How To Run
 This app is deployed, so users can directly run by <br>
-[Click Here](https://neu-cs5010-project2-min.web.app)
+[Click Here](https://neu-cs5010-project2-min.firebaseapp.com/)
 
-If cloning the project <br>
+In case the deployment goes wrong, you can clone the project and follow these steps <br>
 To run the code, in terminal run
 ```bash
 npm install
